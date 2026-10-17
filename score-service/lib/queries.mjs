@@ -1,0 +1,3 @@
+export const TOP_SCORES='SELECT id,nickname,score,distance,created_at FROM scores ORDER BY score DESC,distance DESC,created_at ASC,id ASC LIMIT 20';
+export const SAVE_SCORE='INSERT INTO scores (id,player_key,nickname,score,distance,created_at) SELECT ?,?,?,?,?,? FROM run_tickets WHERE id=? AND used_at IS NULL ON CONFLICT(player_key) DO UPDATE SET nickname=excluded.nickname,score=excluded.score,distance=excluded.distance,created_at=excluded.created_at WHERE excluded.score>scores.score OR (excluded.score=scores.score AND excluded.distance>scores.distance)';
+export const USE_TICKET='UPDATE run_tickets SET used_at=? WHERE id=? AND used_at IS NULL';

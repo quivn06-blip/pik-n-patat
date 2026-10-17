@@ -30,8 +30,12 @@ npm test
 
 The GitHub repository is `quivn06-blip/pik-n-patat` and the current Vercel project is `qmatti/fry-and-fly`. Play at https://fry-and-fly.vercel.app/. The older Dutch prototype is still in `qmatti/pik-n-patat`; publish future Fry & Fly updates to `qmatti/fry-and-fly`.
 
-`vercel.json` runs the tests and publishes `dist/`. No database, secret environment variables or visitor accounts are needed. Vercel Drop is used for deployment; GitHub automatic deployments are not connected yet.
+`vercel.json` runs the tests and publishes `dist/`. The frontend needs no secrets or visitor accounts. The shared leaderboard uses the separately provisioned D1 score service documented in `score-service/README.md`. Vercel Drop is used for deployment; GitHub automatic deployments are not connected yet.
 
-Each visitor plays their own run. There is no shared leaderboard or realtime multiplayer yet.
+Each visitor plays their own run. There is a shared top-20 leaderboard. After a completed ranked run, players can post a nickname and their verified fry score. Only each browser player’s best entry is listed. There is no realtime multiplayer.
 
 The new fry record uses `fry-and-fly-best-fries` in localStorage. The old `patat-best` distance record is left untouched.
+
+## Leaderboard
+
+The UI loads real shared scores, preserves a finished run for retries, and sends recorded inputs to the score service. It never submits an editable score number. If the service cannot be reached at the start, the game stays playable as a practice run.
