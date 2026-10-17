@@ -28,7 +28,7 @@ npm test
 
 ## Deployment
 
-The GitHub repository is `quivn06-blip/pik-n-patat` and the Vercel project is `qmatti/pik-n-patat`. These hosting identifiers stay the same after the game rename.
+The GitHub repository is `quivn06-blip/pik-n-patat` and the current Vercel project is `qmatti/fry-and-fly`. Play at https://fry-and-fly.vercel.app/. The older Dutch prototype is still in `qmatti/pik-n-patat`; publish future Fry & Fly updates to `qmatti/fry-and-fly`.
 
 `vercel.json` runs the tests and publishes `dist/`. No database, secret environment variables or visitor accounts are needed. Vercel Drop is used for deployment; GitHub automatic deployments are not connected yet.
 
